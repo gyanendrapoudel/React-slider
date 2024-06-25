@@ -1,15 +1,15 @@
 import { useState } from 'react'
 
-
 import './App.css'
+import People from './components/People'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-   <>
-   Slider
-   </>
+   <div className="wrapper">
+   <People/>
+   </div>
   )
 }
 

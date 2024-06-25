@@ -1,0 +1,88 @@
+:root{
+  --primary-color: white;
+  --secondary-color: black;
+  --font1: 2rem;
+  --font2:1.25rem;
+
+}
+
+*{
+  box-sizing: border-box;
+
+}
+body{
+  margin: 0;
+}
+.wrapper{
+  background-color: white;
+  min-height: 100vh;
+}
+.container{
+  width: 50%;
+  margin: 0 auto;
+  padding:2rem 0;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.person-details{
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image{
+height: 200px;
+object-fit: center;
+border-radius: 55%;
+box-shadow: 0px 0px 1px 3px rgba(160, 81, 206, 0.896);
+}
+.name{
+  font-size: var(--font1);
+  font-weight: 400;
+  text-transform: capitalize;
+   margin-top: 1.5rem;
+   
+}
+.title{
+  font-size: var(--font2);
+  text-transform: capitalize;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+.quote{
+  word-spacing:5px ;
+  font-weight: 500;
+  font-size: var(--font2);
+}
+
+.icons{
+  color:var(--primary-color);
+  background-color: gray;
+  padding: 0.4rem 0.5rem;
+  font-size: var(--font1);
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 0.15s linear;
+}
+.icons:hover{
+  cursor: pointer;
+  background-color: blueviolet;
+  transform: scale(1.03);
+}
+
+.icons-quote{
+ 
+color: blueviolet;
+ 
+  font-size: var(--font1);
+  font-weight: 700;
+}
+
+@media (max-width:676px){
+  .container{
+    width: 70%;
+  }
+}
