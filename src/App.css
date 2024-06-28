@@ -16,7 +16,7 @@ body{
 .wrapper{
   background-color: white;
   min-height: 100vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .container{
   width: 80%;

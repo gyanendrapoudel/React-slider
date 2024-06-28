@@ -34,31 +34,10 @@ const People = ({  }) => {
   }
 
 
-  const { id, name, title, image, quote } = people[index]
+ 
   return (
     <>
-      {/* {People.map((p)=>
-        <Person key={p.id}  {...p} index={index} />
-    )} */}
-      {/* <Person index={index} handlePrevSlide={handlePrevSlide} /> */}
-      <div className="container">
-        {/* 
-            <div className="person-details">
-          <img
-            src={image}
-            alt="PP"
-            style={{ width: '200px', height: '200px' }}
-            className="image"
-          />
-          <div className="name">{name}</div>
-          <div className="title">{title}</div>
-          <div className="quote">{quote}</div>
-          <div className=" icons-quote">
-            <FaQuoteRight />
-          </div>
-        </div>
-            */}
-        
+           <div className="container">
           {people.map((person, personIndex) => {
             const { id, name, title, image, quote } = person
             return (
@@ -67,8 +46,8 @@ const People = ({  }) => {
                 key={person.id}
                 style={{
                   transform: `translateX(${100 * (personIndex-index)}%)`,
-                  opacity: index === personIndex ? '1' : '0',
-                  // visibility: index === personIndex ? 'visible' : 'hidden',
+                  opacity: index === personIndex ? 1 : 0,
+                  visibility: index === personIndex ? 'visible' : 'hidden',
                 }}
               >
                 <img
