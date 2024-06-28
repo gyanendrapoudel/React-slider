@@ -2,3 +2,5 @@
 # npm install // installing all npm dependency
 # npm run dev // starting app
 # npm install react-icons // for icons
+
+# CSS: make person next to each other in x-axis> position: absolute of that person container, parent container of those person container make position:relative, which is stack all person at one place, then transform:translateX according to their index will make person next to each other in x-axis.

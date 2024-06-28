@@ -1,5 +1,5 @@
 
-import people from '../data'
+import list from '../data'
 import { useState } from "react"
 import { FaQuoteRight } from 'react-icons/fa6'
 import { GrNext } from 'react-icons/gr'
@@ -7,6 +7,7 @@ import { GrPrevious } from 'react-icons/gr'
 
 
 const People = ({  }) => {
+  const [people , setPeople] = useState(list)
   const [index, setIndex] = useState(0)
   const handlePrevSlide = (id) => {
     const currentPerson = people.find((person) => person.id === id)
@@ -41,9 +42,6 @@ const People = ({  }) => {
     )} */}
       {/* <Person index={index} handlePrevSlide={handlePrevSlide} /> */}
       <div className="container">
-        <div className="icons iconPrev">
-          <GrPrevious onClick={() => handlePrevSlide(id)} />
-        </div>
         {/* 
             <div className="person-details">
           <img
@@ -60,35 +58,38 @@ const People = ({  }) => {
           </div>
         </div>
             */}
-
-        {people.map((person, personIndex) => {
-          const { id, name, title, image, quote } = person
-          return (
-            <div
-              className="person-details"
-              key={person.id}
-              style={{
-                transform:
-                  index === personIndex?"translateX(0%)":`translateX(${100 * personIndex}%)`,
-                // opacity: index === personIndex ? '1' : '0',
-                // visibility: index === personIndex ? 'visible' : 'hidden',
-              }}
-            >
-              <img
-                src={image}
-                alt="PP"
-                style={{ width: '200px', height: '200px' }}
-                className="image"
-              />
-              <div className="name">{name}</div>
-              <div className="title">{title}</div>
-              <div className="quote">{quote}</div>
-              <div className=" icons-quote">
-                <FaQuoteRight />
-              </div>
-            </div>
-          )
-        })}
+        
+          {people.map((person, personIndex) => {
+            const { id, name, title, image, quote } = person
+            return (
+              <article
+                className="person-details"
+                key={person.id}
+                style={{
+                  transform: `translateX(${100 * (personIndex-index)}%)`,
+                  opacity: index === personIndex ? '1' : '0',
+                  // visibility: index === personIndex ? 'visible' : 'hidden',
+                }}
+              >
+                <img
+                  src={image}
+                  alt="PP"
+    
+                  className="image"
+                />
+                <div className="name">{name}</div>
+                <div className="title">{title}</div>
+                <div className="quote">{quote}</div>
+                <div className=" icons-quote">
+                  <FaQuoteRight />
+                </div>
+              </article>
+            )
+          })}
+       
+        <div className="icons iconPrev">
+          <GrPrevious onClick={() => handlePrevSlide(id)} />
+        </div>
         <div className="icons iconNext">
           <GrNext onClick={() => handleNextSlide(id)} />
         </div>
