@@ -1,6 +1,6 @@
 
 import list from '../data'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaQuoteRight } from 'react-icons/fa6'
 import { GrNext } from 'react-icons/gr'
 import { GrPrevious } from 'react-icons/gr'
@@ -9,31 +9,27 @@ import { GrPrevious } from 'react-icons/gr'
 const People = ({  }) => {
   const [people , setPeople] = useState(list)
   const [index, setIndex] = useState(0)
-  const handlePrevSlide = (id) => {
-    const currentPerson = people.find((person) => person.id === id)
-    const newIndex = people.indexOf(currentPerson)
-    console.log(currentPerson)
-    console.log(newIndex)
-    if (newIndex === 0) {
-      setIndex(people.length - 1)
-      console.log(index)
-      return
-    }
-    setIndex(newIndex - 1)
+  const handlePrevSlide = () => {
+   setIndex((oldIndex)=>{
+    const result = (oldIndex-1+people.length)%people.length;
+    return result
+   })
   }
   const handleNextSlide = (id) => {
-
-    const currentPerson = people.find((person) => person.id === id)
-    const index = people.indexOf(currentPerson)
-    if (index === people.length-1) {
-      setIndex(0)
-      return
-    }
-    setIndex(index + 1)
+  setIndex((oldIndex) => {
+    const result = (oldIndex + 1 ) % people.length
+    return result
+})
   
   }
-
-
+  useEffect(() => {
+   const slideId = setInterval(() => {
+      handleNextSlide()
+    }, 2000);
+    return ()=>{
+      clearInterval(slideId)
+    }
+  }, [index])
  
   return (
     <>
@@ -67,10 +63,10 @@ const People = ({  }) => {
           })}
        
         <div className="icons iconPrev">
-          <GrPrevious onClick={() => handlePrevSlide(id)} />
+          <GrPrevious onClick={() => handlePrevSlide()} />
         </div>
         <div className="icons iconNext">
-          <GrNext onClick={() => handleNextSlide(id)} />
+          <GrNext onClick={() => handleNextSlide()} />
         </div>
       </div>
     </>
