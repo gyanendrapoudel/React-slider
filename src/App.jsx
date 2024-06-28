@@ -2,6 +2,7 @@ import { useState } from 'react'
 import people from './data'
 import './App.css'
 import People from './components/People'
+import Carousel from '../Carousel'
 
 function App() {
   
@@ -9,7 +10,8 @@ function App() {
 
   return (
     <div className="wrapper">
-      <People />
+      {/* <People /> */}
+      <Carousel/>
     </div>
   )
 }

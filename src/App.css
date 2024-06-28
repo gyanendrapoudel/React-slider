@@ -117,6 +117,30 @@ color: blueviolet;
     transition: all 0.15s linear;
 }
 
+
+/* Slick CSS */
+
+.slick-container{
+
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.slick-slide img {
+  margin:  1rem auto;
+  display: inline-block;
+}
+.slick-prev::before{
+  color: blueviolet !important;
+}
+.slick-next::before{
+  color: blueviolet !important;
+}
+/*  */
+
+
 @media (max-width:676px){
   .container{
     width: 70%;

@@ -11,3 +11,14 @@ style={{
                   opacity: index === personIndex ? 1 : 0,
                   visibility: index === personIndex ? 'visible' : 'hidden',
     }}
+
+
+# using react slick 
+npm install react-slick --save
+
+npm install slick-carousel --save
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
